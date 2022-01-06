@@ -16,21 +16,24 @@ export function addToBeginning(array, item) {
 
 // Immutably insert an item at a specific position/index within an array
 export function insertItem(array, item, index) {
-    let example;
-    return (example = [...array.slice(0,index), item, ...array.slice(index)]
-    );
+  let example;
+  return (example = [...array.slice(0, index), item, ...array.slice(index)]);
 }
 
 // Immutably replace an item at a specific position/index within an array
 export function replaceItem(array, item, index) {
-    let example;
-    return (example = [...array.slice(0,index), item, ...array.slice(index+1)]);
+  let example;
+  return (example = [
+    ...array.slice(0, index),
+    item,
+    ...array.slice(index + 1),
+  ]);
 }
 
 // Immutably remove an item at a specific position/index within an array
 export function removeItem(array, index) {
   let example;
-  return (example = [...array.slice(0, index), ...array.slice(index + 1)])
+  return (example = [...array.slice(0, index), ...array.slice(index + 1)]);
 }
 
 //Objects:
@@ -41,7 +44,7 @@ export function removeItem(array, index) {
 // should give back:
 //     { name: "Barbara"}
 export function updateName(object, newName) {
-  let newObj = {...object};
+  let newObj = { ...object };
   newObj.name = newName;
   return newObj;
 }
@@ -53,7 +56,7 @@ export function updateName(object, newName) {
 // should give back:
 //     { name: "Abe", needsACupOfTea: true }
 export function toggleTeaStatus(object) {
-  let newObj = {...object};
+  let newObj = { ...object };
   if (newObj.needsACupOfTea) {
     newObj.needsACupOfTea = false;
     return newObj;
