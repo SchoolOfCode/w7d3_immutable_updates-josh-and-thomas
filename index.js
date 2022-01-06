@@ -18,14 +18,8 @@ export function addToBeginning(array, item) {
 export function insertItem(array, item, index) {
     let example;
     return (example = [...array.slice(0,index), item, ...array.slice(index)]
-
-
     );
-
-
 }
-
-
 
 // Immutably replace an item at a specific position/index within an array
 export function replaceItem(array, item, index) {
@@ -33,11 +27,11 @@ export function replaceItem(array, item, index) {
     return (example = [...array.slice(0,index), item, ...array.slice(index+1)]);
 }
 
-
-
-
 // Immutably remove an item at a specific position/index within an array
-export function removeItem(array, index) {}
+export function removeItem(array, index) {
+  let example;
+  return (example = [...array.slice(0, index), ...array.slice(index + 1)])
+}
 
 //Objects:
 
@@ -46,7 +40,11 @@ export function removeItem(array, index) {}
 //     updateName({ name: "Abe" }, "Barbara")
 // should give back:
 //     { name: "Barbara"}
-export function updateName(object, newName) {}
+export function updateName(object, newName) {
+  let newObj = {...object};
+  newObj.name = newName;
+  return newObj;
+}
 
 // Immutably update the object so that the value under the "needsACupOfTea" property becomes the opposite of what it was.
 // Any other properties in the object should be maintained.
@@ -54,7 +52,16 @@ export function updateName(object, newName) {}
 //     toggleTeaStatus({ name: "Abe", needsACupOfTea: false })
 // should give back:
 //     { name: "Abe", needsACupOfTea: true }
-export function toggleTeaStatus(object) {}
+export function toggleTeaStatus(object) {
+  let newObj = {...object};
+  if (newObj.needsACupOfTea) {
+    newObj.needsACupOfTea = false;
+    return newObj;
+  } else if (newObj.needsACupOfTea === false) {
+    newObj.needsACupOfTea = true;
+    return newObj;
+  }
+}
 
 // Combo Time!!
 
@@ -64,4 +71,13 @@ export function toggleTeaStatus(object) {}
 //    toggleListItemCompleted([{ task: "Cooking", completed: true }, { task: "Walking", completed: false }], 1)
 // should give back:
 //    [{ task: "Cooking", completed: true }, { task: "Walking", completed: true }]
-export function toggleListItemCompleted(array, index) {}
+export function toggleListItemCompleted(array, index) {
+  let example = [...array];
+  if (example[index].completed) {
+    example[index].completed = false;
+    return example;
+  } else if (example[index].completed === false) {
+    example[index].completed = true;
+    return example;
+  }
+}
