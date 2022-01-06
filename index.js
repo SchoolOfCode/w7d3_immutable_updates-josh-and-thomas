@@ -1,10 +1,18 @@
 // Arrays:
 
 // Immutably add an item to the end of an array
-export function addToEnd(array, item) {}
+export function addToEnd(array, item) {
+  let example;
+  return (example = [...array, item]);
+  // let a
+  // return a = [...array.push(item)];
+}
 
 // Immutably add an item to the beginning of an array
-export function addToBeginning(array, item) {}
+export function addToBeginning(array, item) {
+  let example;
+  return (example = [item, ...array]);
+}
 
 // Immutably insert an item at a specific position/index within an array
 export function insertItem(array, item, index) {}
